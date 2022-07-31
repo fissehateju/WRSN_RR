@@ -105,6 +105,7 @@ namespace RR.Models.Charging
             {
                 charger.isFree = true;
                 charger.ResidualEnergy = PublicParamerters.BatteryIntialEnergyForMC;
+                charger.Bstation.forwardingTasks();
             }
 
         }
