@@ -1,4 +1,4 @@
-﻿using RR.Dataplane;
+using RR.Dataplane;
 using RR.Intilization;
 using System;
 using System.Collections.Generic;
@@ -141,30 +141,16 @@ namespace RR.RingRouting
 
 
         }
-        private static void AddRemoveArrows(RingNodes oldNode, RingNodes newNode)
-        {
-            Sensor newSen = newNode.Node;
-            Sensor oldSen = oldNode.Node;
-            Sensor clockSen = oldNode.ClockWiseNeighbor;
-            Sensor antiClockSen = oldNode.AntiClockWiseNeighbor;
-            Ring.removeOldLine(clockSen, oldSen);
-            Ring.removeOldLine(oldSen, antiClockSen);
-
-            Ring.addNewLine(newSen, antiClockSen);
-            Ring.addNewLine(clockSen, newSen);
-        }
         #endregion
         private static void RemoveArrow(RingNodes oldNode)
         {
             Sensor oldSen = oldNode.Node;
             Sensor clockSen = oldNode.ClockWiseNeighbor;
             Sensor antiClockSen = oldNode.AntiClockWiseNeighbor;
-            Ring.removeOldLine(clockSen, oldSen);
-            Ring.removeOldLine(oldSen, antiClockSen);
         }
         private static void AddArrows(Sensor newSen, Sensor clockSen)
         {
-            Ring.addNewLine(clockSen, newSen);
+
         }
         private void ClearOldRingNodeData(RingNodes node)
         {
