@@ -71,7 +71,7 @@ namespace RR.Comuting.computing
                 double Distance_M = Operations.DistanceBetweenTwoSensors(sender, Reciver);
                 double UsedEnergy_Nanojoule = EnergyModel.Transmit(packt.PacketLength, Distance_M);
                 double UsedEnergy_joule = ConvertToJoule(UsedEnergy_Nanojoule);
-                sender.ResidualEnergy = sender.ResidualEnergy - UsedEnergy_joule * 5; // *5 is new update for Recharging purpose
+                sender.ResidualEnergy = sender.ResidualEnergy - UsedEnergy_joule * 2; // * is new update for Recharging purpose
                 PublicParamerters.TotalEnergyConsumptionJoule += UsedEnergy_joule;
                 packt.UsedEnergy_Joule += UsedEnergy_joule;
                 packt.Hops += 1;
