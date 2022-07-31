@@ -1,4 +1,4 @@
-﻿using RR.Dataplane;
+using RR.Dataplane;
 using RR.Intilization;
 using System;
 using System.Collections.Generic;
@@ -519,44 +519,7 @@ namespace RR.RingRouting
         #endregion
 
 
-
-        public static void removeOldLine(Sensor from, Sensor to)
-        {
-            string name = "line" + from.ID.ToString() + to.ID.ToString();
-            Line line = null;
-            foreach (Line l in PublicParamerters.MyArrowLines)
-            {
-                if (l.Name == name)
-                {
-                    line = l;
-                    break;
-                }
-            }
-            try
-            {
-                PublicParamerters.MyArrowLines.Remove(line);
-                SensingField.Children.Remove(line);
-            }
-            catch
-            {
-                line = null;
-                Console.WriteLine("Line = null");
-            }
-
-        }
-        public static void addNewLine(Sensor from, Sensor to)
-        {
-            Line lineBetweenTwo = new Line();
-            lineBetweenTwo.Name = "line" + from.ID + to.ID;
-            lineBetweenTwo.Fill = Brushes.Black;
-            lineBetweenTwo.Stroke = Brushes.Black;
-            lineBetweenTwo.X1 = from.CenterLocation.X;
-            lineBetweenTwo.Y1 = from.CenterLocation.Y;
-            lineBetweenTwo.X2 = to.CenterLocation.X;
-            lineBetweenTwo.Y2 = to.CenterLocation.Y;
-            SensingField.Children.Add(lineBetweenTwo);
-            PublicParamerters.MyArrowLines.Add(lineBetweenTwo);
-        }
+    
         public static void startRingConstruction()
         {
             ConvexHullBuildMethod();
