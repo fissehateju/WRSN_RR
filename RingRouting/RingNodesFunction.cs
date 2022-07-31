@@ -587,7 +587,6 @@ namespace RR.RingRouting
                 newRingNode.RingNodesRule = newNo;
                 ReplaceTwoNodes(CurrentRN, newNo);
                 ClearOldRingNodeData(CurrentRN, newNo);
-                AddRemoveArrows(CurrentRN, newNo);
                 markNeighboringRingNods();
                 RingNodesFunctions r = new RingNodesFunctions();
                 r.DeterminePositionofAllNodes();
