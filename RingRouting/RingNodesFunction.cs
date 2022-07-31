@@ -336,96 +336,10 @@ namespace RR.RingRouting
             {
                 neighbor.RingNeighborRule = new RingNeighbor(neighbor);
             }
-            //  AddRemoveArrows(node, newNode);
 
         }
 
-        private static void AddRemoveArrows(RingNodes oldNode, RingNodes newNode)
-        {
-            Sensor newSen = newNode.Node;
-            Sensor oldSen = oldNode.Node;
-            Sensor clockSen = oldNode.ClockWiseNeighbor;
-            Sensor antiClockSen = oldNode.AntiClockWiseNeighbor;
-            Ring.removeOldLine(clockSen, oldSen);
-            Ring.removeOldLine(oldSen, antiClockSen);
-
-            Ring.addNewLine(newSen, antiClockSen);
-            Ring.addNewLine(clockSen, newSen);
-        }
-        /* private static void AddRemoveArrows(RingNodes oldNode, RingNodes newNode)
-         {
-             Sensor oldSen = oldNode.Node;
-             Sensor newSen = newNode.Node;
-
-             Sensor clockWise = oldNode.ClockWiseNeighbor;
-             Sensor AnticlockWise = oldNode.AntiClockWiseNeighbor;
-
-             Arrow fromClockToNode = clockWise.MyArrows.Where(i => i.To.ID == oldSen.ID).First();
-
-             int IndexForClock = clockWise.MyArrows.IndexOf(fromClockToNode);
-             if (IndexForClock != -1)
-             {
-                 clockWise.MyArrows[IndexForClock].Stroke = Brushes.Gray;
-                 clockWise.MyArrows[IndexForClock].StrokeThickness = 0.2;
-                 clockWise.MyArrows[IndexForClock].HeadHeight = 0.2;
-                 clockWise.MyArrows[IndexForClock].HeadWidth = 0.2;
-             }
-
-             Arrow fromNodetoAntiClock = oldSen.MyArrows.Where(i => i.To.ID == AnticlockWise.ID).First();
-             int IndexForOld = oldSen.MyArrows.IndexOf(fromNodetoAntiClock);
-             if (IndexForOld != -1)
-             {
-                 oldSen.MyArrows[IndexForOld].Stroke = Brushes.Gray;
-                 oldSen.MyArrows[IndexForOld].StrokeThickness = 0.2;
-                 oldSen.MyArrows[IndexForOld].HeadHeight = 0.2;
-                 oldSen.MyArrows[IndexForOld].HeadWidth = 0.2;
-             }
-             //---------
-
-             Arrow fromClockToNNode;
-             Arrow fromNNodetoAntiClock;
-
-             try
-             {
-                 fromClockToNNode = clockWise.MyArrows.Where(i => i.To.ID == newSen.ID).First();
-                 int IndexForNAnti = clockWise.MyArrows.IndexOf(fromClockToNNode);
-                 if (IndexForNAnti != -1)
-                 {
-                     clockWise.MyArrows[IndexForNAnti].Stroke = Brushes.Black;
-                     clockWise.MyArrows[IndexForNAnti].StrokeThickness = 1;
-                     clockWise.MyArrows[IndexForNAnti].HeadHeight = 0.2;
-                     clockWise.MyArrows[IndexForNAnti].HeadWidth = 0.2;
-                 }
-             }
-             catch
-             {
-                 fromClockToNNode = null;
-                 Ring.addNewArrow(clockWise, newSen);
-             }
-
-             try
-             {
-                 fromNNodetoAntiClock = newSen.MyArrows.Where(i => i.To.ID == AnticlockWise.ID).First();
-                 int IndexForNOld = newSen.MyArrows.IndexOf(fromNNodetoAntiClock);
-                 if (IndexForNOld != -1)
-                 {
-                     newSen.MyArrows[IndexForNOld].Stroke = Brushes.Black;
-                     newSen.MyArrows[IndexForNOld].StrokeThickness = 1;
-                     newSen.MyArrows[IndexForNOld].HeadHeight = 0.2;
-                     newSen.MyArrows[IndexForNOld].HeadWidth = 0.2;
-                 }
-             }
-             catch
-             {
-                 fromNNodetoAntiClock = null;
-                 Ring.addNewArrow(newSen, AnticlockWise);
-             }
-
-
-
-         }
-         */
-
+        
         private static Sensor FindNewRingNodeReplacement(RingNodes RN)
         {
             if (!RN.Node.isExpanding)
