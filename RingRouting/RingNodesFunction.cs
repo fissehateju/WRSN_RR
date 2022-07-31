@@ -1,4 +1,4 @@
-﻿using RR.Dataplane;
+using RR.Dataplane;
 using RR.Intilization;
 using System;
 using System.Collections.Generic;
@@ -339,6 +339,7 @@ namespace RR.RingRouting
 
         }
 
+        
         
         private static Sensor FindNewRingNodeReplacement(RingNodes RN)
         {
