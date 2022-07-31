@@ -269,8 +269,8 @@ namespace RR.ExpermentsResults.Energy_consumptions
 
         private void chk_ismobile_Checked(object sender, RoutedEventArgs e)
         {
-            Settings.Default.IsMobileSink = true;
-            Settings.Default.Save();
+            //Settings.Default.IsMobileSink = true;
+            //Settings.Default.Save();
         }
 
         private void chk_ismobile_Unchecked(object sender, RoutedEventArgs e)
