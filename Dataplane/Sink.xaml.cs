@@ -46,7 +46,7 @@ namespace RR.Dataplane
 
             if (Settings.Default.IsMobileSink)
             {
-                SetMobility();
+                //SetMobility();
             }
 
             Width = 10;
